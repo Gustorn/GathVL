@@ -21,6 +21,10 @@ struct vec_animator : animator {
     vec_animator(int start, int end, vec *a, vec startvec, vec endvec) :
         animator(start, end), vec_ptr(a), start_vec(startvec),
         end_vec(endvec) {}
+
+    explicit vec_animator(vec_animator *a) :
+        animator(a->start_frame, a->end_frame),
+        vec_ptr(a->vec_ptr), start_vec(a->start_vec), end_vec(a->end_vec) {}
 };
 
 #endif //ANIMATIONS_H

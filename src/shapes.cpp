@@ -8,11 +8,11 @@ void shape::update(const int frame) {
 }
 
 void shape::clear_animators() {
-    while (animators.size() > 0) {
+/*    while (animators.size() > 0) {
         auto anim = animators.back();
         animators.pop_back();
         delete anim;
-    }
+    }*/
 }
 
 void ellipse::draw(cairo_t *ctx) {

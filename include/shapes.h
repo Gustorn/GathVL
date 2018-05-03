@@ -37,6 +37,10 @@ struct ellipse : shape {
     ellipse(color elp_clr, vec loc, vec sz, double rotate, bool elp_fill) :
         shape(elp_clr), location(loc), size(sz), rotation(rotate),
         fill(elp_fill), angles({0.0, 2.0 * M_PI}) {}
+
+    explicit ellipse(ellipse *e) : shape(e->clr), location(e->location),
+        size(e->size), rotation(e->rotation), fill(e->fill),
+        angles({0.0, 2.0 * M_PI}) {}
 };
 
 struct arc : shape {
@@ -63,6 +67,8 @@ struct line : shape {
 
     line(color line_clr, vec line_start, vec line_end) : shape(line_clr),
         start(line_start), end(line_end) {}
+
+    explicit line(line *l) : shape(l->clr), start(l->start), end(l->end) {}
 };
 
 struct rectangle : shape {

@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <cairo.h>
+#include <memory>
 #include "vec.h"
 #include "color.h"
 #include "layer.h"
@@ -18,8 +19,9 @@ struct scene {
     void draw(cairo_t *ctx);
     void update(const int frame);
 
-    int add_shape(shape *shp, int layer_pos);
-    int add_animator(animator *anim, int layer_pos, int shape_pos);
+    int add_shape(std::shared_ptr<shape> shp, int layer_pos);
+    int add_animator(std::shared_ptr<animator> anim, int layer_pos,
+                        int shape_pos);
 
     void add_layer();
     void add_layers(int num_layers);
