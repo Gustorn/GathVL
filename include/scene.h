@@ -46,7 +46,7 @@ struct scene {
     }
 
     ~scene() {
-        clear();
+//        clear();
     }
 };
 

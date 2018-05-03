@@ -14,12 +14,13 @@ void scene::update(const int frame) {
 }
 
 int scene::add_shape(shape *shp, int layer_pos) {
-    layers[layer_pos].shapes.push_back(shp);
+    layers[layer_pos].shapes.push_back(std::make_shared<shape>(shp));
     return layers[layer_pos].shapes.size() - 1;
 }
 
 int scene::add_animator(animator *anim, int layer_pos, int shape_pos) {
-    layers[layer_pos].shapes[shape_pos]->animators.push_back(anim);
+    auto smart_ptr = std::make_shared<animator>(anim);
+    layers[layer_pos].shapes[shape_pos]->animators.push_back(smart_ptr);
     return layers[layer_pos].shapes[shape_pos]->animators.size() - 1;
 }
 

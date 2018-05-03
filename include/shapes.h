@@ -4,13 +4,14 @@
 #include <vector>
 #include <cmath>
 #include <cairo.h>
+#include <memory>
 #include "vec.h"
 #include "color.h"
 #include "animators.h"
 
 struct shape {
     color clr;
-    std::vector<animator*> animators;
+    std::vector<std::shared_ptr<animator>> animators;
 
     virtual void draw(cairo_t *) = 0;
     void update(const int frame);
